@@ -1,0 +1,7 @@
+kernel/drivers/gpu/drm/drm_kms_helper.ko
+kernel/drivers/gpu/drm/drm.ko
+kernel/drivers/gpu/drm/mediatek/mediatek-drm.ko
+kernel/drivers/gpu/drm/panel/panel-truly-td4330-vdo.ko
+kernel/drivers/gpu/drm/panel/panel-nt36672a-rt4801-vdo.ko
+kernel/drivers/gpu/drm/panel/panel-truly-ft8756-vdo.ko
+kernel/drivers/gpu/drm/panel/panel-rm6920h-wqxga-dsi-vdo-edo.ko

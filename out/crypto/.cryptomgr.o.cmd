@@ -1,0 +1,1 @@
+cmd_crypto/cryptomgr.o :=  rm -f crypto/cryptomgr.o; /home/monster/tb132fu/kernel-4.14/../prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9.1/bin/aarch64-linux-androidkernel-ar rcSTPD crypto/cryptomgr.o crypto/algboss.o crypto/testmgr.o 

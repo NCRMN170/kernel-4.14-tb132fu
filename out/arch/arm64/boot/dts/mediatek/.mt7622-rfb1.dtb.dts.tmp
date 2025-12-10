@@ -1,0 +1,144 @@
+# 1 "../arch/arm64/boot/dts/mediatek/mt7622-rfb1.dts"
+# 1 "<built-in>" 1
+# 1 "../arch/arm64/boot/dts/mediatek/mt7622-rfb1.dts" 2
+
+
+
+
+
+
+
+
+/dts-v1/;
+
+# 1 "../arch/arm64/boot/dts/mediatek/mt7622.dtsi" 1
+
+
+
+
+
+
+
+
+# 1 "../scripts/dtc/include-prefixes/dt-bindings/interrupt-controller/irq.h" 1
+# 10 "../arch/arm64/boot/dts/mediatek/mt7622.dtsi" 2
+# 1 "../scripts/dtc/include-prefixes/dt-bindings/interrupt-controller/arm-gic.h" 1
+# 11 "../arch/arm64/boot/dts/mediatek/mt7622.dtsi" 2
+
+/ {
+ compatible = "mediatek,mt7622";
+ interrupt-parent = <&sysirq>;
+ #address-cells = <2>;
+ #size-cells = <2>;
+
+ cpus {
+  #address-cells = <2>;
+  #size-cells = <0>;
+
+  cpu0: cpu@0 {
+   device_type = "cpu";
+   compatible = "arm,cortex-a53", "arm,armv8";
+   reg = <0x0 0x0>;
+   enable-method = "psci";
+   clock-frequency = <1300000000>;
+  };
+
+  cpu1: cpu@1 {
+   device_type = "cpu";
+   compatible = "arm,cortex-a53", "arm,armv8";
+   reg = <0x0 0x1>;
+   enable-method = "psci";
+   clock-frequency = <1300000000>;
+  };
+ };
+
+ uart_clk: dummy25m {
+  compatible = "fixed-clock";
+  #clock-cells = <0>;
+  clock-frequency = <25000000>;
+ };
+
+ bus_clk: dummy280m {
+  compatible = "fixed-clock";
+  #clock-cells = <0>;
+  clock-frequency = <280000000>;
+ };
+
+ psci {
+  compatible = "arm,psci-0.2";
+  method = "smc";
+ };
+
+ reserved-memory {
+  #address-cells = <2>;
+  #size-cells = <2>;
+  ranges;
+
+
+  secmon_reserved: secmon@43000000 {
+   reg = <0 0x43000000 0 0x30000>;
+   no-map;
+  };
+ };
+
+ timer {
+  compatible = "arm,armv8-timer";
+  interrupt-parent = <&gic>;
+  interrupts = <1 13 ((((1 << (2)) - 1) << 8) |
+         4)>,
+        <1 14 ((((1 << (2)) - 1) << 8) |
+         4)>,
+        <1 11 ((((1 << (2)) - 1) << 8) |
+         4)>,
+        <1 10 ((((1 << (2)) - 1) << 8) |
+         4)>;
+ };
+
+ sysirq: interrupt-controller@10200620 {
+  compatible = "mediatek,mt7622-sysirq",
+        "mediatek,mt6577-sysirq";
+  interrupt-controller;
+  #interrupt-cells = <3>;
+  interrupt-parent = <&gic>;
+  reg = <0 0x10200620 0 0x20>;
+ };
+
+ gic: interrupt-controller@10300000 {
+  compatible = "arm,gic-400";
+  interrupt-controller;
+  #interrupt-cells = <3>;
+  interrupt-parent = <&gic>;
+  reg = <0 0x10310000 0 0x1000>,
+        <0 0x10320000 0 0x1000>,
+        <0 0x10340000 0 0x2000>,
+        <0 0x10360000 0 0x2000>;
+ };
+
+ uart0: serial@11002000 {
+  compatible = "mediatek,mt7622-uart",
+        "mediatek,mt6577-uart";
+  reg = <0 0x11002000 0 0x400>;
+  interrupts = <0 91 8>;
+  clocks = <&uart_clk>, <&bus_clk>;
+  clock-names = "baud", "bus";
+  status = "disabled";
+ };
+};
+# 11 "../arch/arm64/boot/dts/mediatek/mt7622-rfb1.dts" 2
+
+/ {
+ model = "MediaTek MT7622 RFB1 board";
+ compatible = "mediatek,mt7622-rfb1", "mediatek,mt7622";
+
+ chosen {
+  bootargs = "console=ttyS0,115200n1";
+ };
+
+ memory {
+  reg = <0 0x40000000 0 0x3F000000>;
+ };
+};
+
+&uart0 {
+ status = "okay";
+};

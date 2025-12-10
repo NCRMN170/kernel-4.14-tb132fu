@@ -1,0 +1,1 @@
+cmd_sound/core/snd-rawmidi.o :=  rm -f sound/core/snd-rawmidi.o; /home/monster/tb132fu/kernel-4.14/../prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9.1/bin/aarch64-linux-androidkernel-ar rcSTPD sound/core/snd-rawmidi.o sound/core/rawmidi.o 

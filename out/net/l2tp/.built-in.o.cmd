@@ -1,0 +1,1 @@
+cmd_net/l2tp/built-in.o :=   rm -f net/l2tp/built-in.o; /home/monster/tb132fu/kernel-4.14/../prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9.1/bin/aarch64-linux-androidkernel-ar rcSTPD net/l2tp/built-in.o net/l2tp/l2tp_core.o net/l2tp/l2tp_ppp.o 

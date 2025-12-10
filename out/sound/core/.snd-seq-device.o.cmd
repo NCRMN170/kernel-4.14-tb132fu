@@ -1,0 +1,1 @@
+cmd_sound/core/snd-seq-device.o :=  rm -f sound/core/snd-seq-device.o; /home/monster/tb132fu/kernel-4.14/../prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9.1/bin/aarch64-linux-androidkernel-ar rcSTPD sound/core/snd-seq-device.o sound/core/seq_device.o 

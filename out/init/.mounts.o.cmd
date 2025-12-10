@@ -1,0 +1,1 @@
+cmd_init/mounts.o :=  rm -f init/mounts.o; /home/monster/tb132fu/kernel-4.14/../prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9.1/bin/aarch64-linux-androidkernel-ar rcSTPD init/mounts.o init/do_mounts.o init/do_mounts_rd.o init/do_mounts_initrd.o 

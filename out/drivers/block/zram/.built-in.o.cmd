@@ -1,0 +1,1 @@
+cmd_drivers/block/zram/built-in.o :=   rm -f drivers/block/zram/built-in.o; /home/monster/tb132fu/kernel-4.14/../prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9.1/bin/aarch64-linux-androidkernel-ar rcSTPD drivers/block/zram/built-in.o drivers/block/zram/zram.o 

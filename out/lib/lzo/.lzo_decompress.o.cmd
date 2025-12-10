@@ -1,0 +1,1 @@
+cmd_lib/lzo/lzo_decompress.o :=  rm -f lib/lzo/lzo_decompress.o; /home/monster/tb132fu/kernel-4.14/../prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9.1/bin/aarch64-linux-androidkernel-ar rcSTPD lib/lzo/lzo_decompress.o lib/lzo/lzo1x_decompress_safe.o 

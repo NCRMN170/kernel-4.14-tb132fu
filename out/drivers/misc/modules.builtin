@@ -1,0 +1,2 @@
+kernel/drivers/misc/ocp96011-i2c.ko
+kernel/drivers/misc/board_id.ko

@@ -1,0 +1,1 @@
+cmd_fs/fat/msdos.o :=  rm -f fs/fat/msdos.o; /home/monster/tb132fu/kernel-4.14/../prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9.1/bin/aarch64-linux-androidkernel-ar rcSTPD fs/fat/msdos.o fs/fat/namei_msdos.o 

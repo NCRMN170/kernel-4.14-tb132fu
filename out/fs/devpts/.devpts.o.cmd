@@ -1,0 +1,1 @@
+cmd_fs/devpts/devpts.o :=  rm -f fs/devpts/devpts.o; /home/monster/tb132fu/kernel-4.14/../prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9.1/bin/aarch64-linux-androidkernel-ar rcSTPD fs/devpts/devpts.o fs/devpts/inode.o 
