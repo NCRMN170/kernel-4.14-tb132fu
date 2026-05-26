@@ -1751,10 +1751,11 @@ static int goodix_ts_input_dev_config(struct goodix_ts_core *core_data)
 	set_bit(INPUT_PROP_DIRECT, input_dev->propbit);
 
 	/* set input parameters */
-	input_set_abs_params(input_dev, ABS_MT_POSITION_X,
-			     0, ts_bdata->panel_max_x, 0, 0);
-	input_set_abs_params(input_dev, ABS_MT_POSITION_Y,
-			     0, ts_bdata->panel_max_y, 0, 0);
+	// DİKKAT: x y ekseni maximum limitleri tersti. bu yüzden ters çeviriyoruz. The maximum limits of the x and y axes were reversed. That's why we're reversing them.
+    input_set_abs_params(input_dev, ABS_MT_POSITION_X,
+                 0, ts_bdata->panel_max_y, 0, 0); // panel_max_x İDİ, panel_max_y OLDU
+    input_set_abs_params(input_dev, ABS_MT_POSITION_Y,
+                 0, ts_bdata->panel_max_x, 0, 0); // panel_max_y İDİ, panel_max_x OLDU
 	input_set_abs_params(input_dev, ABS_MT_TOUCH_MAJOR,
 			     0, ts_bdata->panel_max_w, 0, 0);
 #ifdef INPUT_TYPE_B_PROTOCOL
