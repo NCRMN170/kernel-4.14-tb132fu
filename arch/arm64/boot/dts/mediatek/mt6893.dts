@@ -4367,7 +4367,9 @@ page_owner=on loop.max_part=7";
 			"disp_dp_intf0_eof",
 			"disp_mutex2_eof",
 			"disp_wdma1_eof2",
-			"disp_dsi0_sof0";
+			"disp_dsi0_sof0",
+			"disp_wdma1_eof0",  /* EKLENEN YENİ SATIR */
+                        "disp_rdma0_eof1";  /* EKLENEN YENİ SATIR */
 
 		gce-events = <&gce_mbox CMDQ_EVENT_DISP_STREAM_DONE_0>,
 			<&gce_mbox CMDQ_EVENT_DP_INTF_FRAME_DONE_MM>,
@@ -4385,7 +4387,9 @@ page_owner=on loop.max_part=7";
 			<&gce_mbox CMDQ_EVENT_DP_INTF_FRAME_DONE_MM>,
 			<&gce_mbox CMDQ_EVENT_DP_INTF_FRAME_DONE_MM>,
 			<&gce_mbox CMDQ_EVENT_DISP_WDMA1_FRAME_DONE>,
-			<&gce_mbox CMDQ_EVENT_DSI0_SOF>;
+			<&gce_mbox CMDQ_EVENT_DSI0_SOF>,
+			<&gce_mbox CMDQ_EVENT_DISP_WDMA1_FRAME_DONE>, /* eof0 için donanım karşılığı */
+                        <&gce_mbox CMDQ_EVENT_DISP_RDMA0_FRAME_DONE>; /* eof1 için donanım karşılığı */
 
 		helper-name = "MTK_DRM_OPT_STAGE",
 			"MTK_DRM_OPT_USE_CMDQ",
