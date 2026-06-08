@@ -1811,8 +1811,9 @@ static int goodix_ts_pen_dev_config(struct goodix_ts_core *core_data)
 	set_bit(BTN_TOUCH, pen_dev->keybit);
 	set_bit(BTN_TOOL_PEN, pen_dev->keybit);
 	set_bit(INPUT_PROP_DIRECT, pen_dev->propbit);
-	input_set_abs_params(pen_dev, ABS_X, 0, ts_bdata->panel_max_x, 0, 0);
-	input_set_abs_params(pen_dev, ABS_Y, 0, ts_bdata->panel_max_y, 0, 0);
+/* İmlecin kalem ucuyla tam eşleşmesi için X ve Y'nin maksimum limitlerini yer değiştirdik! */
+    input_set_abs_params(pen_dev, ABS_X, 0, ts_bdata->panel_max_y, 0, 0);
+    input_set_abs_params(pen_dev, ABS_Y, 0, ts_bdata->panel_max_x, 0, 0);
 	input_set_abs_params(pen_dev, ABS_PRESSURE, 0,
 			     ts_bdata->panel_max_p, 0, 0);
 	input_set_abs_params(pen_dev, ABS_TILT_X,
