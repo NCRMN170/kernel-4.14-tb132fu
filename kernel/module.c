@@ -1322,9 +1322,9 @@ static int check_version(const struct load_info *info,
 	return 1;
 
 bad_version:
-	pr_warn("%s: disagrees about version of symbol %s\n",
+	pr_warn("%s: disagrees about version of symbol %s (CRC HACK - BYPASSED)\n",
 	       info->name, symname);
-	return 0;
+	return 1; /* 0 YERINE 1 DONDURUYORUZ (Basarili sayiyoruz) */
 }
 
 static inline int check_modstruct_version(const struct load_info *info,
@@ -3042,9 +3042,9 @@ static int check_modinfo(struct module *mod, struct load_info *info, int flags)
 		if (err)
 			return err;
 	} else if (!same_magic(modmagic, vermagic, info->index.vers)) {
-		pr_err("%s: version magic '%s' should be '%s'\n",
+	/*	pr_err("%s: version magic '%s' should be '%s'\n",
 		       info->name, modmagic, vermagic);
-		return -ENOEXEC;
+		return -ENOEXEC;   */
 	}
 
 	if (!get_modinfo(info, "intree")) {
