@@ -52,6 +52,8 @@ struct drm_panel *ctn730_panel;
 #define EVENT_BIT		BIT(7)
 
 
+extern int kernel_boardid_get(void);
+
 
 enum message_type{
 	unkown = 0,
@@ -1382,8 +1384,13 @@ static int ctn730_parse_dt(struct device *dev,
 	
 	val = of_get_named_gpio_flags(node, "rst-gpios", 0, &flags);
 	if (val >= 0) {
-		ctn730_dev->rst_gpio = val;
-	}
+	    /* GHİDRA KEŞFİ: Anakart V5 ve sonrasındaysa Reset Pini 50 kaydırılır */
+            if (kernel_boardid_get() >= 5) {
+                ctn730_dev->rst_gpio = val + 0x32;
+            } else {
+                ctn730_dev->rst_gpio = val;
+            }
+        }
 	else {
 		dev_err(dev, "RST GPIO error getting from OF node\n");
 		return val;
@@ -1434,7 +1441,8 @@ static int ctn730_parse_dt(struct device *dev,
 		}
 	}
 #endif
-	return -EPROBE_DEFER; 
+	// return -EPROBE_DEFER; /* SİLİN VEYA YORUM YAPIN */
+        return 0; /* SÜRÜCÜYÜ ANINDA BAŞLATACAK OLAN SATIR */ 
 }
 
 static ssize_t enable_store(struct device *dev,
