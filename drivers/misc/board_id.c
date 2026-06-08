@@ -45,7 +45,9 @@ int __init setup_boardid(char *str)
 		return 1;
 	}
 }
-__setup("androidboot.hwboardid=", setup_boardid);
+/* ORİJİNALİ BUYDU: __setup("androidboot.hwboardid=", setup_boardid); */
+/* GHİDRA & CMDLINE YAMASI: PVT kelimesi artık hwstage içinde geliyor! */
+__setup("androidboot.hwstage=", setup_boardid);
 
 int box_id = 0;
 int audio_boxid_get(void)
@@ -61,3 +63,13 @@ int __init setup_boxid(char *str)
 	return 1;
 }
 __setup("androidboot.boxid=", setup_boxid);
+
+/* GHİDRA YAMASI: eksik Board ID Getter Fonksiyonu */
+int kernel_boardid_get(void)
+{
+    return BoardId;
+}
+EXPORT_SYMBOL(kernel_boardid_get);
+
+
+
