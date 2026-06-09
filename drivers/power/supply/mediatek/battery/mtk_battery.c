@@ -449,7 +449,7 @@ static int battery_get_property(struct power_supply *psy,
 	union power_supply_propval *val)
 {
 	int ret = 0;
-	int fgcurrent = 0;
+    /*	int fgcurrent = 0;  */
 	//bool b_ischarging = 0;
 	union power_supply_propval value;
 
@@ -534,7 +534,7 @@ static int battery_get_property(struct power_supply *psy,
 		break;
 	case POWER_SUPPLY_PROP_TIME_TO_FULL_NOW:
 		/* full or unknown must return 0 */
-		ret = check_cap_level(data->BAT_CAPACITY);
+	/*	ret = check_cap_level(data->BAT_CAPACITY);
 		if ((ret == POWER_SUPPLY_CAPACITY_LEVEL_FULL) ||
 			(ret == POWER_SUPPLY_CAPACITY_LEVEL_UNKNOWN))
 			val->intval = 0;
@@ -557,7 +557,10 @@ static int battery_get_property(struct power_supply *psy,
 			val->intval = abs(time_to_full);
 		}
 		ret = 0;
-		break;
+		break;   */
+		val->intval = -1;
+                ret = 0;
+                break;		
 	case POWER_SUPPLY_PROP_CHARGE_FULL_DESIGN:
 		if (check_cap_level(data->BAT_CAPACITY) ==
 			POWER_SUPPLY_CAPACITY_LEVEL_UNKNOWN)
