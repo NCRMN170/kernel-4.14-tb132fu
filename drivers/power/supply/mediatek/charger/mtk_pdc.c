@@ -30,16 +30,23 @@ bool pdc_is_ready(void)
 
 void pdc_init_table(void)
 {
-	pd->cap.nr = 0;
-	pd->cap.selected_cap_idx = -1;
 
-	if (pdc_is_ready())
-		adapter_get_cap(&pd->cap);
-	else
-		chr_err("mtk_is_pdc_ready is fail\n");
+/* 1. ADIM: 0xff ataması (-1 demektir) */
+    pd->cap.selected_cap_idx = -1;
+    
+    /* Not: pd->cap.nr = 0; satırı derleyici tarafından 
+     * gereksiz görülüp silinmiş (optimize edilmiş). */
 
-	chr_err("[%s] nr:%d default:%d\n", __func__, pd->cap.nr,
-	pd->cap.selected_cap_idx);
+    /* 2. ADIM: Ghidra'daki o koca yazının tam karşılığı */
+    printk("mtk pd is disabled!\n");
+
+    /* 3. ADIM: chr_get_debug_level() kontrolünün C dilindeki hali 
+     * MediaTek'in chr_err veya chr_debug makrosudur.
+     * if (pdc_is_ready()) kısmı tamamen SİLİNMİŞ ve direkt bu yazılmış: */
+    chr_err("mtk_is_pdc_ready is fail\n"); 
+
+    /* 4. ADIM: Fonksiyonun adı (__func__) ve değişkenlerle log yazdırma */
+    chr_err("[%s] nr:%d default:%d\n", __func__, pd->cap.nr, pd->cap.selected_cap_idx);
 }
 
 void pdc_get_reset_idx(void)
