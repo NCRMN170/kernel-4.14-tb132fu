@@ -133,7 +133,7 @@ signed int battery_get_soc(void)
 
 	if (bq_psy) {
 		power_supply_get_property(bq_psy, POWER_SUPPLY_PROP_CAPACITY, &value);
-		pr_info("s:get bq_psy success, soc(%d)\n",__func__, value.intval);
+		pr_info("%s:get bq_psy success, soc(%d)\n",__func__, value.intval);
 
 		return value.intval;
 	}
