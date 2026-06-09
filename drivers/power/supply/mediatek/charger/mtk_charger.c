@@ -2757,7 +2757,7 @@ static int mtk_charger_parse_dt(struct charger_manager *info,
 	return 0;
 }
 
-extern bool g_is_pps_ta(void);
+/* extern bool g_is_pps_ta(void); */
 static ssize_t show_Pump_Express(struct device *dev,
 		struct device_attribute *attr, char *buf)
 {
@@ -2784,8 +2784,8 @@ static ssize_t show_Pump_Express(struct device *dev,
 	if (mtk_is_TA_support_pd_pps(pinfo) == true)
 		is_ta_detected = 1;
 
-	if (true == g_is_pps_ta())
-		is_ta_detected = 1;
+/*	if (true == g_is_pps_ta())
+		is_ta_detected = 1;   */
 
 	pr_debug("%s: detected = %d, pe20_connect = %d, pe_connect = %d\n",
 		__func__, is_ta_detected,
@@ -2794,7 +2794,6 @@ static ssize_t show_Pump_Express(struct device *dev,
 
 	return sprintf(buf, "%u\n", is_ta_detected);
 }
-
 static DEVICE_ATTR(Pump_Express, 0444, show_Pump_Express, NULL);
 
 static ssize_t show_input_current(struct device *dev,
