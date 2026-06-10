@@ -41,8 +41,13 @@
 #define PANEL_WIDTH  2560
 #define PANEL_HEIGHT 1536
 
+/*
 #define PHYSICAL_WIDTH 146530
 #define PHYSICAL_HEIGHT 244220
+*/
+
+#define PHYSICAL_WIDTH 244220
+#define PHYSICAL_HEIGHT 146530
 
 #define oled_ldo2 1
 
