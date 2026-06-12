@@ -64,6 +64,11 @@ static void hall_irq_event_workfunc(struct work_struct *work)
 			input_sync(global_hall_info->ipdev);
 			input_report_key(global_hall_info->ipdev, KEY_HALL_OPEN, 0);
 			input_sync(global_hall_info->ipdev);
+			
+			/* EKLENEN YAMA: Android'in Ekranı Açması İçin (LID = 0) */
+			input_report_switch(global_hall_info->ipdev, SW_LID, 0);
+			input_sync(global_hall_info->ipdev);
+			/*  */ 
 	}else{
 			if (kb_hall_gpio)
 				gpio_direction_output(kb_hall_gpio, 1);
@@ -71,6 +76,11 @@ static void hall_irq_event_workfunc(struct work_struct *work)
 			input_sync(global_hall_info->ipdev);
 			input_report_key(global_hall_info->ipdev, KEY_HALL_CLOSE, 0);
 			input_sync(global_hall_info->ipdev);
+			
+			/* EKLENEN YAMA: Android'in Ekranı Kapatması İçin (LID = 1) */
+			input_report_switch(global_hall_info->ipdev, SW_LID, 1);
+			input_sync(global_hall_info->ipdev);
+			/* */
 	}
 	enable_irq(global_hall_info->irq);
 	pr_err("Hall_sensor hall en irq\n");
@@ -318,6 +328,7 @@ static int hall_remove(struct platform_device *pdev)
 
 static struct of_device_id sn_match_table[] = {
 	{ .compatible = "p11,hall", },
+	{ .compatible = "hall-switch", }, /* EKLENEN KİLİT YAMA: Cihazın dayattığı kimlik / for prebuilt dtbo */
 	{ },
 }; 
 
