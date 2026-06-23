@@ -456,6 +456,16 @@ static long AF_SetMotorName(__user struct stAF_MotorName *pstMotorName)
 		LOG_INF("copy to user failed when getting motor information\n");
 
 	stMotorName.uMotorName[sizeof(stMotorName.uMotorName) - 1] = '\0';
+	
+        /*                 isim ayırma yaması                 */
+	{
+		char *ptr = strchr(stMotorName.uMotorName, '_');
+		if (ptr != NULL) {
+			*ptr = '\0'; /* Alt tireyi (ve sonrasını) silip string'i temizleriz */
+		}
+	}
+
+	pr_err("[DEDEKTIF] HAL'in temizlenmis saf AF motor istegi: '%s'\n", stMotorName.uMotorName);	
 
 	for (i = 0; i < MAX_NUM_OF_LENS; i++) {
 		if (g_stAF_DrvList[i].uEnable != 1)
