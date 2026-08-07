@@ -1,1 +1,0 @@
-cmd_lib/lzo/lzo_compress.o :=  rm -f lib/lzo/lzo_compress.o; /home/monster/tb132fu/kernel-4.14/../prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9.1/bin/aarch64-linux-androidkernel-ar rcSTPD lib/lzo/lzo_compress.o lib/lzo/lzo1x_compress.o 

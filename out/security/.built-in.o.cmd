@@ -1,1 +1,0 @@
-cmd_security/built-in.o :=   rm -f security/built-in.o; /home/monster/tb132fu/kernel-4.14/../prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9.1/bin/aarch64-linux-androidkernel-ar rcSTPD security/built-in.o security/keys/built-in.o security/commoncap.o security/min_addr.o security/security.o security/selinux/built-in.o security/lsm_audit.o security/integrity/built-in.o 

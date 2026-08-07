@@ -1,1 +1,0 @@
-cmd_fs/devpts/built-in.o :=   rm -f fs/devpts/built-in.o; /home/monster/tb132fu/kernel-4.14/../prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9.1/bin/aarch64-linux-androidkernel-ar rcSTPD fs/devpts/built-in.o fs/devpts/devpts.o 

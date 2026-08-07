@@ -1,1 +1,0 @@
-cmd_fs/verity/built-in.o :=   rm -f fs/verity/built-in.o; /home/monster/tb132fu/kernel-4.14/../prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9.1/bin/aarch64-linux-androidkernel-ar rcSTPD fs/verity/built-in.o fs/verity/enable.o fs/verity/hash_algs.o fs/verity/init.o fs/verity/measure.o fs/verity/open.o fs/verity/verify.o fs/verity/signature.o 

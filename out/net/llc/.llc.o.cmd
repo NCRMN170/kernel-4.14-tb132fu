@@ -1,1 +1,0 @@
-cmd_net/llc/llc.o :=  rm -f net/llc/llc.o; /home/monster/tb132fu/kernel-4.14/../prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9.1/bin/aarch64-linux-androidkernel-ar rcSTPD net/llc/llc.o net/llc/llc_core.o net/llc/llc_input.o net/llc/llc_output.o 

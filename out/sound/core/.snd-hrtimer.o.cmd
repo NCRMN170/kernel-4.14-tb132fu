@@ -1,1 +1,0 @@
-cmd_sound/core/snd-hrtimer.o :=  rm -f sound/core/snd-hrtimer.o; /home/monster/tb132fu/kernel-4.14/../prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9.1/bin/aarch64-linux-androidkernel-ar rcSTPD sound/core/snd-hrtimer.o sound/core/hrtimer.o 

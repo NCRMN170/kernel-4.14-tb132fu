@@ -1,1 +1,0 @@
-cmd_sound/core/seq/snd-seq-dummy.o :=  rm -f sound/core/seq/snd-seq-dummy.o; /home/monster/tb132fu/kernel-4.14/../prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9.1/bin/aarch64-linux-androidkernel-ar rcSTPD sound/core/seq/snd-seq-dummy.o sound/core/seq/seq_dummy.o 

@@ -1,1 +1,0 @@
-cmd_certs/built-in.o :=   rm -f certs/built-in.o; /home/monster/tb132fu/kernel-4.14/../prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9.1/bin/aarch64-linux-androidkernel-ar rcSTPD certs/built-in.o certs/system_keyring.o certs/system_certificates.o 

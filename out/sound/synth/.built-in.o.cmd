@@ -1,1 +1,0 @@
-cmd_sound/synth/built-in.o :=   rm -f sound/synth/built-in.o; /home/monster/tb132fu/kernel-4.14/../prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9.1/bin/aarch64-linux-androidkernel-ar rcSTPD sound/synth/built-in.o sound/synth/emux/built-in.o 
